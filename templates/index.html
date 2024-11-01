@@ -1,0 +1,23 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">
+    <title> Basic App</title>
+</head>
+<body>
+  <h1>Add things</h1>  
+    <div>Add a new item:  
+        <form action="{{ url_for('add') }}" method="POST">  
+            <input type="text" name="itemadd">  
+            <input type="submit" value="Add Item" class="button">  
+        </form>  
+    </div>
+    <div>
+        <ul>  
+            {% for item in available_items %}  
+            <li style="font-size: 30pt">{{ item.text }}</li>  
+            {% endfor %}  
+        </ul>
+    </div>
+</body>
+</html>
