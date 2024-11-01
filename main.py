@@ -32,13 +32,12 @@ def add():
   
     return redirect(url_for('index')) 
   
-  
-@app.route('/complete/<id>') 
-def complete(id): 
-  
-    todo = Todo.query.filter_by(id=int(id)).first()
-    db.session.commit() 
-  
+@app.route('/drop_db_model', methods=['POST']) 
+def drop_db_model_table():
+    db_model.__table__.drop(db.engine)
+    with app.app_context():
+        db.create_all()  # Creates the database tables
+
     return redirect(url_for('index'))
 
 @app.route("/hello")

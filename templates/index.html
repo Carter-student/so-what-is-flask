@@ -9,8 +9,11 @@
     <div>Add a new item:  
         <form action="{{ url_for('add') }}" method="POST">  
             <input type="text" name="itemadd">  
-            <input type="submit" value="Add Item" class="button">  
-        </form>  
+            <input type="submit" value="Add Item" class="button"> 
+        </form> 
+        <form action="{{ url_for('drop_db_model_table') }}" method="POST">
+          <input type="submit" value="Drop Table" class="button">
+        </form>
     </div>
     <div>
         <ul>  
